@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="bg-primary text-white p-3 mb-4">
+            <h1><i class="fas fa-balance-scale me-2"></i>Legal Document Checker</h1>
+            <p class="lead">Ensure consistency across your legal documents</p>
+        </header>
+
+        <div class="row">
+            <!-- Client Information Panel -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h5 mb-0"><i class="fas fa-user-tie me-2"></i>Client Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="clientInfoForm">
+                            <div class="mb-3">
+                                <label for="clientName" class="form-label">Client Name</label>
+                                <input type="text" class="form-control" id="clientName" placeholder="Enter client name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="caseNumber" class="form-label">Case Number</label>
+                                <input type="text" class="form-control" id="caseNumber" placeholder="Enter case number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="caseType" class="form-label">Case Type</label>
+                                <select class="form-select" id="caseType">
+                                    <option selected disabled>Select case type</option>
+                                    <option value="civil">Civil Litigation</option>
+                                    <option value="criminal">Criminal Defense</option>
+                                    <option value="corporate">Corporate Law</option>
+                                    <option value="family">Family Law</option>
+                                    <option value="estate">Estate Planning</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filingDate" class="form-label">Filing Date</label>
+                                <input type="date" class="form-control" id="filingDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="courtName" class="form-label">Court Name</label>
+                                <input type="text" class="form-control" id="courtName" placeholder="Enter court name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="opposingParty" class="form-label">Opposing Party</label>
+                                <input type="text" class="form-control" id="opposingParty" placeholder="Enter opposing party name">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Save Client Information</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h5 mb-0"><i class="fas fa-folder me-2"></i>Saved Clients</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul id="clientList" class="list-group">
+                            <!-- Client list will be populated here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document Editor Panel -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h5 mb-0"><i class="fas fa-file-alt me-2"></i>Document Editor</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="documentTitle" class="form-label">Document Title</label>
+                            <input type="text" class="form-control" id="documentTitle" placeholder="Enter document title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="documentType" class="form-label">Document Type</label>
+                            <select class="form-select" id="documentType">
+                                <option selected disabled>Select document type</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="motion">Motion</option>
+                                <option value="brief">Brief</option>
+                                <option value="contract">Contract</option>
+                                <option value="letter">Letter</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="documentContent" class="form-label">Document Content</label>
+                            <textarea class="form-control" id="documentContent" rows="15" placeholder="Enter or paste document content here"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button id="checkDocument" class="btn btn-warning"><i class="fas fa-check-circle me-2"></i>Check Document</button>
+                            <button id="saveDocument" class="btn btn-success"><i class="fas fa-save me-2"></i>Save Document</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div id="resultsPanel" class="card mb-4 d-none">
+                    <div class="card-header bg-warning">
+                        <h2 class="h5 mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Consistency Check Results</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="resultsContent">
+                            <!-- Results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
